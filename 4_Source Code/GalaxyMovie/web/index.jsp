@@ -41,7 +41,7 @@
                                 <li><a href="#">Mỹ</a></li>
                                 <li><a href="#">Hàn quốc</a></li>
                                 <li><a href="#">Trung Quốc</a></li>
-                                <li><a href="#">Singapore</a></li>
+                                <li><a href="#">Thái Lan</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Phim lẻ</a></li> 
@@ -131,7 +131,7 @@
                             totalScore += Number(resData[i].phim.danhgia[j].diem);
                         }
                         var ratedScore = Math.round(totalScore/resData[i].phim.danhgia.length);
-                        var preparedHtml = '<div class="col-md-3"><div class="container-fluid grayhover"><a href="#"><img class="img-responsive" src="' + resData[i].phim.hinhanh + '"  style="margin-top:5px;" alt=" + resData[i].phim.tenphim + "></a><p>'
+                        var preparedHtml = '<div class="col-md-3"><div class="container-fluid grayhover"><a href="/web/thongtin.jsp?id='+ resData[i]._id +'"><img class="img-responsive" src="' + resData[i].phim.hinhanh + '"  style="margin-top:5px;" alt=" + resData[i].phim.tenphim + "></a><p>'
                                 + resData[i].phim.tenphim + '</p><p>Đánh giá:('
                                 + ratedScore + '/10<span class="glyphicon glyphicon-star"></span>) '
                                 + resData[i].phim.danhgia.length + ' lượt</p><p><span class="glyphicon glyphicon-eye-open" style="color:red"></span>'
