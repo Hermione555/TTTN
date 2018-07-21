@@ -22,7 +22,7 @@ import org.json.*;
  * @author DELL
  */
 public class Connect {
-     public static void main(String[] args) {
+     public static List<TuDien> getTuDien() {
        
           Mongo mongo=new Mongo("localhost",27017); //to establish a connection
           DB db=mongo.getDB("galaxy_movie");                // select the databse test
@@ -51,9 +51,8 @@ public class Connect {
             int hatgiong = Integer.parseInt(array.getJSONObject(i).get("tuhatgiong").toString());
             list.add(new TuDien(tu,trongso,hatgiong));
         }
-        
-        
-        
+       
+        return list;
 
 
 

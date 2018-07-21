@@ -66,39 +66,38 @@
                         <p><span class="glyphicon glyphicon-eye-open" style="color:red"></span>12000  <span class="glyphicon glyphicon-comment" style="color:red"></span> 200</p>
                     </div>
                 </div>
-               -->
+                -->
             </div>
         </div>
         <script>
             $(document).ready(function () {
                 var preparedImgSlideHtml = '';
                 var preparedImgSlideSizeHtml = '';
-                $.get("http://localhost:3000/movie-list", function (data, status) {
+                $.get("http://localhost:3000/movie-list/khoa-hoc-vien-tuong", function (data, status) {
                     var resData = JSON.parse(data);
-                    for(var i = 0; i < resData.length; i++){
+                    for (var i = 0; i < resData.length; i++) {
                         var totalScore = 0;
-                        for(var j = 0; j < resData[i].phim.danhgia.length; j++){
+                        for (var j = 0; j < resData[i].phim.danhgia.length; j++) {
                             totalScore += Number(resData[i].phim.danhgia[j].diem);
                         }
-                        var ratedScore = Math.round(totalScore/resData[i].phim.danhgia.length);
-                        var preparedHtml = '<div class="col-md-3"><div class="container-fluid grayhover"><a href="/web/thongtin.jsp?id='+ resData[i]._id +'"><img class="img-responsive" src="' + resData[i].phim.hinhanh + '"  style="margin-top:5px;" alt=" + resData[i].phim.tenphim + "></a><p>'
+                        var ratedScore = Math.round(totalScore / resData[i].phim.danhgia.length);
+                        var preparedHtml = '<div class="col-md-3"><div class="container-fluid grayhover"><a href="/web/thongtin.jsp?id=' + resData[i]._id + '"><img class="img-responsive" src="' + resData[i].phim.hinhanh + '"  style="margin-top:5px;" alt=" + resData[i].phim.tenphim + "></a><p>'
                                 + resData[i].phim.tenphim + '</p><p>Đánh giá:('
                                 + ratedScore + '/10<span class="glyphicon glyphicon-star"></span>) '
                                 + resData[i].phim.danhgia.length + ' lượt</p><p><span class="glyphicon glyphicon-eye-open" style="color:red"></span>'
                                 + resData[i].phim.luotxem + '  <span class="glyphicon glyphicon-comment" style="color:red"></span> '
                                 + resData[i].phim.binhluan.length + '</p></div></div>';
                         document.getElementById('movielist').innerHTML += preparedHtml;
-                        if(i === 0){
+                        if (i === 0) {
                             preparedImgSlideSizeHtml += '<li data-target="#hangCarousel" data-slide-to="' + i + '" class="active"></li>';
                             //poster
                             preparedImgSlideHtml += '<div class="item active"><img class="img-responsive center-block" src="'
-                                + resData[i].phim.poster + '" alt="' + resData[i].phim.tenphim + '"></div>';
-                        }
-                        else{
+                                    + resData[i].phim.poster + '" alt="' + resData[i].phim.tenphim + '"></div>';
+                        } else {
                             preparedImgSlideSizeHtml += '<li data-target="#hangCarousel" data-slide-to="' + i + '"></li>';
                             //poster
                             preparedImgSlideHtml += '<div class="item"><img class="img-responsive center-block" src="'
-                                + resData[i].phim.poster + '" alt="' + resData[i].phim.tenphim + '"></div>';
+                                    + resData[i].phim.poster + '" alt="' + resData[i].phim.tenphim + '"></div>';
                         }
                     }
                     document.getElementById('imgslidesize').innerHTML = preparedImgSlideSizeHtml;

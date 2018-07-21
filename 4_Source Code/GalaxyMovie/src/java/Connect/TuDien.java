@@ -21,6 +21,11 @@ public class TuDien {
         this.trongSo = trongSo;
         this.tuHatGiong = tuHatGiong;
     }
+
+    public TuDien() {
+        this.tu="";
+    }
+    
     
     public void setTu(String tu) {
         this.tu = tu;
