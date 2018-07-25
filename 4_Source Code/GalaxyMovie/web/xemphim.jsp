@@ -35,15 +35,19 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="">
+                    <div>
+                        <div class="form-group">
+                            <label for="usr" style="color:white;">Email:</label>
+                            <input type="email" class="form-control" id="mail">
+                        </div>
                         <div class="form-group" style="font-size:20px;">
-                            <label style="color:white;">Thêm bình luận mới về phim này: </label>
-                            <textarea class="form-control" rows="5" name="comment"></textarea>
+                            <label style="color:white;">Nội dung: </label>
+                            <textarea class="form-control" rows="5" id="commentvalue"></textarea>
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-default">Đăng bình luận</button>
+                            <button class="btn btn-default" id="submitcomment">Đăng bình luận</button>
                         </div>
-                    </form> 
+                    </div> 
                 </div>
                 <div class="col-md-12" style="font-size:20px;" id="comment">
                     <p style="font-size:35px;"><span class="label label-info">Bình luận</span></p>
@@ -105,6 +109,32 @@
                         }
                         document.getElementById("comment").innerHTML += commentHTML;
                     });
+                }
+            });
+            //binh luan
+            $('#submitcomment').click(function (){
+                var movieId = '<%                    if (request.getParameter("id") != null) {
+                        if (request.getParameter("id") != "") {
+                            out.print(request.getParameter("id"));
+                        }
+                    }
+
+                %>';
+                if(movieId !== ''){
+                   var commentvalue = document.getElementById('commentvalue').value;
+                   var email= document.getElementById('mail').value;
+                   if(commentvalue !== '' && email !== ''){
+                       $.get("http://localhost:3000/add-comment",
+                                {
+                                    id: movieId,
+                                    email: email,
+                                    noidung: commentvalue
+                                 },
+                            function(data, status){
+                                var resData = JSON.parse(data);
+                                alert(resData.message);
+                        });
+                   }
                 }
             });
         </script>

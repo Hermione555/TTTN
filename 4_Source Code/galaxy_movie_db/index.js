@@ -4,6 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var url = "mongodb://localhost:27017/";
 var bodyParser = require('body-parser')
+var dateTime = require('node-datetime');
 
 app.set('view engine', 'ejs');
 
@@ -41,6 +42,30 @@ app.get('/movie-info', function (req, res) {
     dbo.collection("movie").findOne(query, function (err, result) {
       if (err) throw err;
       res.render('output', { result: result });
+      db.close();
+    });
+  });
+});
+//Them binh luan
+app.get('/add-comment', function (req, res) {
+  var movieIdObj = new ObjectID(req.query.id);
+  var dt = dateTime.create();
+  var currentTime = dt.format('Y-m-d H:M:S');
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    var dbo = db.db("galaxy_movie");
+    var myquery = { "_id": movieIdObj };
+    var newvalues = { $push: {"phim.binhluan":{email: req.query.email, noidung: req.query.noidung, thoigian: currentTime}}};
+    dbo.collection("movie").updateOne(myquery, newvalues, function(err, addresult) {
+      resultmsg = {};
+     if (err){
+      resultmsg = {message: "Failed new comment"};
+      throw err;
+     }
+     else{
+      resultmsg = {message: "Added new comment"}
+     }
+      res.render('output', { result: resultmsg });
       db.close();
     });
   });
