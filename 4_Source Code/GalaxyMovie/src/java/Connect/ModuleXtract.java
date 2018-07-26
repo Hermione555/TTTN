@@ -28,7 +28,7 @@ public class ModuleXtract {
     
 
 
-        private void xTract(String vanBan)
+        public String xTract(String vanBan)
         {
         String strTextOut = "";
         vanBan = vanBan.replace('!', '.'); // chuy?n d?u k?t ! -> .
@@ -84,12 +84,12 @@ public class ModuleXtract {
             }
             }
             createVector();
-            summary();
+            return summary();
         }
 
             
         
-        public TuDien findTerm(String Term){
+        private TuDien findTerm(String Term){
             for (int i = 0; i < tuDien.size(); i++) {
                         TuDien temp = tuDien.get(i);
                         if(temp.getTu().equals(Term)){
@@ -99,7 +99,7 @@ public class ModuleXtract {
         }
             return new TuDien();
     }
-        public void createVector() {
+        private void createVector() {
         G = TermValues;
         N = new ArrayList<Float>();
         P = new ArrayList<Float>();
@@ -133,19 +133,19 @@ public class ModuleXtract {
             return 0;
         return (sumPowX / denominator);
     }
-        public void summary(){
+        public String summary(){
         
         double cosinNG = (double) Math.round(coSin(N) * 1000) / 1000;
         double cosinPG = (double) Math.round(coSin(P) * 1000) / 1000;
         double result = cosinPG-cosinNG;
             System.out.println("cosin(P,G): "+cosinPG+" | "+ "cosin(N,G): "+cosinNG);
         if (result>0) {
-            System.out.println("Tích cực");
+            return "Tích cực";
         } else {
             if (result == 0) {
-                System.out.println("Trung lập");
+                return "Trung lập";
             } else {
-                System.out.println("Tiêu cực");
+                return "Tiêu cực";
             }
         }
 
@@ -153,6 +153,7 @@ public class ModuleXtract {
 
         //System.out.println("Summary : "+str);
     }
+        
         public static void main(String[] args) {
         ModuleXtract  xTract= new ModuleXtract();
         xTract.xTract("phim này dở quá. Nội dung cực kỳ tệ.");
@@ -167,6 +168,13 @@ public class ModuleXtract {
            //     String []temp = front1[i].split("-");
             //    System.out.println(temp[0]+" "+temp[1]);
            // }
+           
+           
+           
+           
+           
+           
+           
     }
 }
 
