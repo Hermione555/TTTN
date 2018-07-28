@@ -156,7 +156,8 @@ public class ModuleXtract {
         
         public static void main(String[] args) {
         ModuleXtract  xTract= new ModuleXtract();
-        xTract.xTract("phim này dở quá. Nội dung cực kỳ tệ.");
+        String result = xTract.xTract("phim này hay ghê. Nội dung phim cũng được.");
+        System.out.println(result); 
         //String []front1 = {"rất-0.5","cực-0.5","cực kì-2","vô cùng-3"}; // chuỗi những từ đứng trước seed
         //String []front2= {"cực kì","vô cùng"}; // 2
        // String seed ="";
