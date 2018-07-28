@@ -1,0 +1,76 @@
+{
+    "_id" : ObjectId("5b32f4ca1d6263f336b4da91"),
+    "phim" : {
+        "theloai" : "Phiêu luu - Hành d?ng",
+        "quocgia" : "Trung Qu?c",
+        "tenphim" : "Li?t H?a Nhu Ca",
+        "daodien" : "Lý V? Co",
+        "dienvien" : "Châu Du Dân, Ð?ch L? Nhi?t Ba",
+        "thoiluong" : "122 phút",
+        "luotxem" : "1200",
+        "danhgia" : [ 
+            {
+                "email" : "hang@gmail.com",
+                "diem" : "8"
+            }, 
+            {
+                "email" : "tha@gmail.com",
+                "diem" : "10"
+            }, 
+            {
+                "email" : "quocanh@gmail.com",
+                "diem" : "4"
+            }, 
+            {
+                "email" : "hien@gmail.com",
+                "diem" : "5"
+            }, 
+            {
+                "email" : "hienco@gmail.com",
+                "diem" : "7"
+            }
+        ],
+        "hinhanh" : "http://localhost:8080/web/Images/liethoa.jpg",
+        "poster" : "http://localhost:8080/web/Images/3.jpg",
+        "linkphim" : "http://localhost:8080/web/video/liethoanhuca.mp4",
+        "binhluan" : [ 
+            {
+                "email" : "hang@gmail.com",
+                "noidung" : "Phim d? quá",
+                "thoigian" : "2018-05-30 10:00"
+            }, 
+            {
+                "email" : "tha@gmail.com",
+                "noidung" : "phim này không hay l?m.",
+                "thoigian" : "2018-05-30 12:00"
+            }, 
+            {
+                "email" : "thai@gmail.com",
+                "noidung" : "di?n viên d?p. Phim cung du?c.",
+                "thoigian" : "2018-05-30 22:00"
+            }, 
+            {
+                "email" : "tha@gmail.com",
+                "noidung" : "phim hay l?m nha.",
+                "thoigian" : "2018-07-25 22:39:51"
+            }, 
+            {
+                "email" : "coco",
+                "noidung" : "phim cung du?c thôi à.",
+                "thoigian" : "2018-07-25 22:41:22"
+            }, 
+            {
+                "email" : "hang",
+                "noidung" : "phim hay quá.",
+                "thoigian" : "2018-07-28 10:08:05"
+            }, 
+            {
+                "email" : "g@gmail.com",
+                "noidung" : "hay",
+                "thoigian" : "2018-07-28 10:15:02"
+            }
+        ],
+        "khen" : "100",
+        "che" : "20"
+    }
+}
